@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Интерактивное программирование</title>
+</head>
+
+<body>
+    <h1 id="heading">0</h1>
+    <script src="https://code.jquery.com/jquery-2.1.0.js">
+    </script>
+    <script>
+        var speed = 20;
+        var score = 0;
+        var leftOffset = 0;
+        var topOffset = 0;
+        var Position = 0;
+        var winText = "Ви виграли";
+        var element = $("#heading");
+        var moveHeading = function () {
+            if (Position == 0) {
+                element.offset({ left: leftOffset });
+                leftOffset++;
+                if (leftOffset > 400) {
+                    Position = 1;
+                }
+            }
+            else if (Position == 1) {
+                element.offset({ top: topOffset });
+                topOffset++;
+                if (topOffset > 400) {
+                    Position = 2;
+                }
+            }
+            else if (Position == 2) {
+                element.offset({ left: leftOffset });
+                leftOffset--;
+                if (leftOffset == 1) {
+                    Position = 3;
+                }
+            }
+            else if (Position == 3) {
+                element.offset({ top: topOffset });
+                topOffset--;
+                if (topOffset == 0) {
+                    Position = 0;
+                }
+            }
+            element.text(score);
+        };
+        element.click(function (click) {
+            speed = speed - 3;
+            score++;
+            clearInterval(ger);
+            ger = setInterval(moveHeading, speed);
+            if (score >= 10) {
+                element.text(winText);
+                clearInterval(ger);
+            };
+        });
+
+        var ger = null;
+
+
+
+
+        // $("html").click(function (click) {
+        //     $("#heading").offset({
+        //         left: click.pageX,
+        //         top: click.pageY
+        //     });
+        // });
+        // №1
+
+
+    </script>
+</body>
+
+</html>
