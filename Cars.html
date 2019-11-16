@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cars</title>
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    <script>
+        // let speed = Number(prompt("Введіть швидкість машини."));
+        // let speed = 0;
+        let Car = function (x, y) {
+            this.speed = 5;
+            this.x = x;
+            this.y = y;
+            this.draw();
+        };
+
+        Car.prototype.draw = function () {
+            let carHtml = '<img src="img/tesla.jpg">';
+            this.carElement = $(carHtml);
+            this.carElement.css({
+                position: "absolute",
+                left: this.x,
+                top: this.y
+            });
+            $("body").append(this.carElement);
+        };
+
+        Car.prototype.updatePosition = function () {
+            this.carElement.css({
+                left: this.x,
+                top: this.y
+            });
+        };
+
+        Car.prototype.moveRight = function (speed) {
+            this.x += speed;
+            this.updatePosition();
+        };
+
+        Car.prototype.moveLeft = function (speed) {
+            this.x -= speed;
+            this.updatePosition();
+        };
+
+        Car.prototype.moveUp = function (speed) {
+            this.y -= speed;
+            this.updatePosition();
+        };
+
+        Car.prototype.moveDown = function (speed) {
+            this.y += speed;
+            this.updatePosition();
+        };
+
+
+        // let actions = {
+        //     32: "reset",
+        //     38: "up",
+        //     40: "down",
+        //     39: "right",
+        //     37: "left"
+        // };
+
+
+        // $("html").keydown(function (event) {
+        //     switch (actions[event.keyCode]) {
+        //         case "reset":
+        //             tesla.move(0, 0);
+        //             break;
+        //         case "up":
+        //             tesla.moveUp();
+        //             break;
+        //             case "down":
+        //             tesla.moveDown();
+        //             break;
+        //             case "right":
+        //             tesla.moveRight();
+        //             break;
+        //             case "left":
+        //             tesla.moveLeft();
+        //             break;
+        //         default:
+        //             console.log("For this key no action");
+        //             break;
+        //     }
+        //     // console.log(event.keyCode);
+        // });
+
+
+        let tesla = new Car(0, 0);
+        let tesla1 = new Car(0, 100);
+        let drive = function (car) {
+            let f = Math.floor(Math.random() * 10);
+            car.moveRight(f);
+            car.updatePosition();
+        };
+    setInterval(drive, 30, tesla);
+    setInterval(drive, 30, tesla1);
+    
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="400" height="400"></canvas>
+    <script>
+        let canvas = document.getElementById("canvas");
+        let context = canvas.getContext("2d");
+        context.fillStyle='red';
+        context.fillRect(40, 0, 50, 50);
+        context.fillRect(60, 50, 10, 20);
+        context.fillRect(0, 70, 130, 10);
+        context.fillRect(30, 80, 70, 60);
+        context.fillRect(30, 140, 10, 50);
+        context.fillRect(90, 140, 10, 50);
+        context.fillStyle='white';
+        context.fillRect(50, 8, 10, 10);
+        context.fillRect(70, 8, 10, 10);
+
+        // let color = ["Green", "Blue", "Orange", "Yellow", "Purple", "White", "Black", "Pink", "Turquoise", "Violet", "SkyBlue", "PaleGreen",];
+        // for (let f = 0; f < color.length; f++) {
+        //     let y = 0;
+        //     let x = f * 50;
+        //     context.fillStyle = color[f];
+        //     if (x > 400) {
+        //         y = 100;
+        //         x = x % 400 - 50;
+        //     };
+        //     context.fillRect(x, y, 50, 100);
+        // }
+
+        // context.lineWidth=10;
+        // context.strokeStyle='deepPink';
+        // context.strokeRect(5, 5, 100, 100);
+
+
+        // for (let j = 0; j < 100; j+= 10) {
+        //     context.fillRect(j, j, 10, 10); 
+        //     context.fillRect(j, 90 - j, 10, 10); 
+        // };
+
+        // context.lineWidth=10;
+        // context.strokeStyle='Turquoise';
+        // context.beginPath();
+        // context.moveTo(10, 10);
+        // context.lineTo(60, 60);
+        // context.moveTo(60, 10);
+        // context.lineTo(10, 60);
+        // context.stroke();
+        
+    </script>
+</body>
+
+</html>
